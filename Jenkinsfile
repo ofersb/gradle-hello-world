@@ -6,4 +6,7 @@ node{
   stage ('build'){
       sh "${gradle4}/bin/gradle jar"
       }
+  stage ('archive'){
+      archiveArtifacts artifacts: '**/build/libs/*.jar', fingerprint: true
+      }
   }
